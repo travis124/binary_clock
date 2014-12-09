@@ -1,3 +1,7 @@
+#include<OneWire.h>
+#include <AikoEvents.h>
+using namespace Aiko;
+
 int hourLEDs_tens[] = {1,2};
 int hourLEDs_ones[] = {3,4,5,6};
 
@@ -11,10 +15,11 @@ void setup() {
 }
 
 void loop() {
-  cycleTime(1000);
+  cycleTime();
 }
 
-void cycleTime(int _delay) {
+void cycleTime() {
+  long _delay = 1000L * 60L;
  for(int hourT = 0; hourT <= 1; hourT++) {
     for(int hourO = 1; hourO <= 9; hourO++) {
       for(int minuteT = 0; minuteT <= 5; minuteT++) {
@@ -24,7 +29,7 @@ void cycleTime(int _delay) {
            return; 
           }
           setTime(hourT, hourO, minuteT, minuteO);
-          delay(_delay); // delay(1000*60) doesn't work?
+          delay(_delay);
         }
       }
     }
