@@ -11,16 +11,24 @@ void setup() {
 }
 
 void loop() {
-  for(int hourT = 0; hourT <= 2; hourT++) {
-    for(int hourO = 0; hourO <= 9; hourO++) {
+  cycleTime(1000);
+}
+
+void cycleTime(int _delay) {
+ for(int hourT = 0; hourT <= 1; hourT++) {
+    for(int hourO = 1; hourO <= 9; hourO++) {
       for(int minuteT = 0; minuteT <= 5; minuteT++) {
         for(int minuteO = 0; minuteO <= 9; minuteO++) {
+          // need to find a way to reset after 12:59
+          if(hourT == 1 && hourO == 2 && minuteT == 5 && minuteO == 9) {
+           return; 
+          }
           setTime(hourT, hourO, minuteT, minuteO);
-          delay(1000);
+          delay(_delay); // delay(1000*60) doesn't work?
         }
       }
     }
-  }
+  } 
 }
 
 void setTime(int hourT, int hourO, int minuteT, int minuteO) {
