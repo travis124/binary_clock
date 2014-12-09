@@ -1,7 +1,3 @@
-#include<OneWire.h>
-#include <AikoEvents.h>
-using namespace Aiko;
-
 int hourLEDs_tens[] = {2};
 int hourLEDs_ones[] = {3,4,5,6};
 
